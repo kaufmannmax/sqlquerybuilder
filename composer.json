@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "kaufmannmax\\": "src/"
+      "kaufmannmax\\SQLQueryBuilder\\": "src/"
     }
   },
   "description": "Simple SQL Query Builder",
