@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd" backupGlobals="true"
+         cacheResult="false" colors="false" processIsolation="false" stopOnError="false" stopOnFailure="false"
+         stopOnIncomplete="false" stopOnSkipped="false" stopOnRisky="false" timeoutForSmallTests="1"
+         timeoutForMediumTests="10" timeoutForLargeTests="60" testdox="true" bootstrap="../../vendor/autoload.php"
+         cacheDirectory=".phpunit.cache" backupStaticProperties="false" requireCoverageMetadata="false">
+    <coverage/>
+    <testsuites>
+        <testsuite name="Golivetest">
+            <directory>../Unit</directory>
+        </testsuite>
+    </testsuites>
+    <groups>
+        <include>
+            <group>Golivetest</group>
+        </include>
+    </groups>
+</phpunit>

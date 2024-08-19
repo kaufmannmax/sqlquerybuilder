@@ -1,0 +1,40 @@
+{
+  "name": "kaufmannmax/sqlquerybuilder",
+  "type": "library",
+  "archive": {
+    "exclude": [
+      "/tests",
+      "CHANGELOG.md",
+      "README.md"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "kaufmannmax\\": "src/"
+    }
+  },
+  "description": "Simple SQL Query Builder",
+  "keywords": [
+    "database",
+    "datenbank",
+    "composer",
+    "package"
+  ],
+  "license": "proprietary",
+  "require": {
+    "php": ">=8.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "phpstan/phpstan": "*",
+    "vimeo/psalm": "^5.21.1",
+    "friendsofphp/php-cs-fixer": "*",
+    "captainhook/captainhook": "^5.18.1",
+    "overtrue/phplint": "*"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "vendor/bin/captainhook install -f --configuration './tests/config/captainhook.json'"
+    ]
+  }
+}
