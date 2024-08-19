@@ -4,12 +4,14 @@ namespace kaufmannmax\SQLQueryBuilder\Entities;
 
 abstract readonly class BasicEntities
 {
-    public function __toString(): string{
+    public function __toString(): string
+    {
         return $this->getValue();
     }
 
-    public static function checkValue(string $field):bool{
-        $field=trim($field);
+    public static function checkValue(string $field): bool
+    {
+        $field = trim($field);
         if (!empty($field)) {
             return true;
         }
@@ -17,7 +19,8 @@ abstract readonly class BasicEntities
         return false;
     }
 
-    public function getValue():string{
+    public function getValue(): string
+    {
         return $this->fieldName;
     }
 }

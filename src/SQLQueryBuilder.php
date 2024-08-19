@@ -21,17 +21,14 @@ class SQLQueryBuilder
         protected array $from = [],
         protected array $where = [],
         protected array $orderBy = []
-    )
-    {
-
-    }
+    ) {}
 
     public function select(string $field): self
     {
         try {
             $value = Select::tryFromString($field);
 
-            if (!in_array($field, $this->select)) {
+            if (!in_array($field, $this->select, true)) {
                 $this->select[] = $value;
             }
 
@@ -46,7 +43,7 @@ class SQLQueryBuilder
         try {
             $value = From::tryFromString($table);
 
-            if (!in_array($table, $this->from)) {
+            if (!in_array($table, $this->from, true)) {
                 $this->from[] = $value;
             }
         } catch (InvalidArgumentException) {
@@ -59,7 +56,7 @@ class SQLQueryBuilder
         try {
             $value = Where::tryFromString($field);
 
-            if (!in_array($field, $this->where)) {
+            if (!in_array($field, $this->where, true)) {
                 $this->where[] = $value;
             }
         } catch (InvalidArgumentException) {
@@ -72,7 +69,7 @@ class SQLQueryBuilder
         try {
             $value = OrderBy::tryFromString($field);
 
-            if (!in_array($field, $this->orderBy)) {
+            if (!in_array($field, $this->orderBy, true)) {
                 $this->orderBy[] = $value;
             }
         } catch (InvalidArgumentException) {
