@@ -40,10 +40,7 @@ jobs:
         uses: "ramsey/composer-install@3.0.0"
 
       - name: "Check syntax (php-parallel-lint)"
-        run: "composer dev:lint:syntax"
-
-      - name: "Check coding standards (PHP_CodeSniffer)"
-        run: "composer dev:lint:style"
+        run: "./vendor/bin/phplint --configuration=./tests/config/.phplint.yml"
 
   static-analysis:
     name: "Static analysis"
