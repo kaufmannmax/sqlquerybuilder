@@ -137,7 +137,8 @@ jobs:
         uses: "ramsey/composer-install@3.0.0"
         with:
           dependency-versions: "${{ matrix.composer-deps }}"
-          composer-options: "${{ matrix.composer-options }}"
+          composer-options: "${{ matrix.composer-options }} --no-progress --no-scripts"
+
 
       - name: "Run unit tests (PHPUnit)"
         shell: "bash"
