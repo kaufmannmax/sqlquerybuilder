@@ -4,7 +4,7 @@ namespace kaufmannmax\SQLQueryBuilder\Entities;
 
 use InvalidArgumentException;
 
-readonly class Select extends BasicEntities
+class Select extends BasicEntities
 {
     public function __construct(
         protected string $fieldName,

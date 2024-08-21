@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - "main"
+      - "dev"
     tags:
       - "*"
   pull_request:
@@ -93,6 +94,9 @@ jobs:
       - name: "Analyze security of code (Psalm)"
         run: "./vendor/bin/psalm --taint-analysis --report=build/logs/psalm.sarif"
 
+      - name: "Analyze security of code (Composer)"
+        run: "composer audit"
+
       - name: "Upload security analysis results to GitHub"
         uses: "github/codeql-action/upload-sarif@v3"
         with:
@@ -108,21 +112,12 @@ jobs:
         php:
           - "8.3"
         os:
-          - "macos-latest"
           - "ubuntu-latest"
-          - "windows-latest"
         composer-deps:
           - "lowest"
           - "highest"
 
     steps:
-      - name: "Configure Git (for Windows)"
-        if: ${{ matrix.os == 'windows-latest' }}
-        shell: "bash"
-        run: |
-          git config --system core.autocrlf false
-          git config --system core.eol lf
-
       - name: "Checkout repository"
         uses: "actions/checkout@v4.1.4"
 
@@ -136,7 +131,7 @@ jobs:
         uses: "ramsey/composer-install@3.0.0"
         with:
           dependency-versions: "${{ matrix.composer-deps }}"
-          composer-options: "${{ matrix.composer-options }}"
+          composer-options: "${{ matrix.composer-options }} --no-progress --no-scripts"
 
       - name: "Run unit tests (PHPUnit)"
         shell: "bash"

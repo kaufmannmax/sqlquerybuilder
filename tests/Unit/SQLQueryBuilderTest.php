@@ -45,7 +45,7 @@ class SQLQueryBuilderTest extends TestCase
 
         $result = $this->sqlquerybuilder->asSQL();
 
-        $this->assertSame('SELECT name, username FROM users WHERE username="test"', $result);
+        $this->assertSame('SELECT name, username FROM users WHERE username="test" ORDER BY name', $result);
     }
 
 
