@@ -61,10 +61,10 @@ jobs:
         uses: "ramsey/composer-install@3.0.0"
 
       - name: "Statically analyze code (PHPStan)"
-        run: "composer dev:analyze:phpstan -c ./tests/config/phpstan.neon"
+        run: "./vendor/bin/phpstan analyse -c ./tests/config/phpstan.neon"
 
       - name: "Statically analyze code (Psalm)"
-        run: "composer dev:analyze:psalm -- --shepherd  --config=tests/config/psalm.xml"
+        run: "./vendor/bin/psalm --config=tests/config/psalm.xml"
 
   security-analysis:
     name: "Security analysis"
@@ -89,6 +89,9 @@ jobs:
 
       - name: "Install dependencies (Composer)"
         uses: "ramsey/composer-install@3.0.0"
+
+      - name: "Analyze security of code (Psalm)"
+        run: "./vendor/bin/psalm --taint-analysis --report=build/logs/psalm.sarif"
 
       - name: "Upload security analysis results to GitHub"
         uses: "github/codeql-action/upload-sarif@v3"
@@ -163,4 +166,4 @@ jobs:
 
       - name: "Run unit tests (PHPUnit)"
         shell: "bash"
-        run: "composer dev:test:unit --configuration ./tests/config/Golivetest.xml"
+        run: "./vendor/bin/phpunit --configuration ./tests/config/Golivetest.xml"
