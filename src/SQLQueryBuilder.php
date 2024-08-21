@@ -28,7 +28,7 @@ class SQLQueryBuilder
         try {
             $value = Select::tryFromString($field);
 
-            if (!in_array($field, $this->select, true)) {
+            if (!in_array($field, $this->select)) {
                 $this->select[] = $value;
             }
 
@@ -43,7 +43,7 @@ class SQLQueryBuilder
         try {
             $value = From::tryFromString($table);
 
-            if (!in_array($table, $this->from, true)) {
+            if (!in_array($table, $this->from)) {
                 $this->from[] = $value;
             }
         } catch (InvalidArgumentException) {
@@ -56,7 +56,7 @@ class SQLQueryBuilder
         try {
             $value = Where::tryFromString($field);
 
-            if (!in_array($field, $this->where, true)) {
+            if (!in_array($field, $this->where)) {
                 $this->where[] = $value;
             }
         } catch (InvalidArgumentException) {
@@ -69,7 +69,7 @@ class SQLQueryBuilder
         try {
             $value = OrderBy::tryFromString($field);
 
-            if (!in_array($field, $this->orderBy, true)) {
+            if (!in_array($field, $this->orderBy)) {
                 $this->orderBy[] = $value;
             }
         } catch (InvalidArgumentException) {

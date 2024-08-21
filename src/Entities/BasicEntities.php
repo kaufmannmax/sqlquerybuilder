@@ -2,7 +2,7 @@
 
 namespace kaufmannmax\SQLQueryBuilder\Entities;
 
-abstract readonly class BasicEntities
+abstract class BasicEntities
 {
     public function __construct(
         protected string $fieldName,

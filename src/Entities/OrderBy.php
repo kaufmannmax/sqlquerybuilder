@@ -4,7 +4,7 @@ namespace kaufmannmax\SQLQueryBuilder\Entities;
 
 use InvalidArgumentException;
 
-readonly class OrderBy extends BasicEntities
+class OrderBy extends BasicEntities
 {
     public function __construct(
         protected string $fieldName,
