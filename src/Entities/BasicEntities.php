@@ -4,6 +4,10 @@ namespace kaufmannmax\SQLQueryBuilder\Entities;
 
 abstract readonly class BasicEntities
 {
+    public function __construct(
+        protected string $fieldName,
+    ) {}
+
     public function __toString(): string
     {
         return $this->getValue();
