@@ -20,7 +20,7 @@
     "composer",
     "package"
   ],
-  "license": "proprietary",
+  "license": "BSD-3-Clause",
   "require": {
     "php": ">=8.3"
   },
