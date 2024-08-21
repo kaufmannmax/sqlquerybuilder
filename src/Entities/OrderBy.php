@@ -8,7 +8,9 @@ readonly class OrderBy extends BasicEntities
 {
     public function __construct(
         protected string $fieldName,
-    ) {}
+    ) {
+        parent::__construct($fieldName);
+    }
 
     public static function tryFromString(string $newValue): self
     {

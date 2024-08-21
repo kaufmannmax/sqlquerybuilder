@@ -2,7 +2,8 @@
 
 namespace Unit;
 
-use kaufmannmax\SQLQueryBuilder;
+use kaufmannmax\SQLQueryBuilder\SQLQueryBuilder;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\TestDox;
 use PHPUnit\Framework\TestCase;
@@ -19,6 +20,7 @@ class SQLQueryBuilderTest extends TestCase
 
     #[Test]
     #[TestDox('Basic SQL Query Example')]
+    #[Group('Golivetest')]
     public function testExample1(): void
     {
         $this->sqlquerybuilder->select('name');
@@ -36,6 +38,7 @@ class SQLQueryBuilderTest extends TestCase
 
     #[Test]
     #[TestDox('Basic SQL Query Example')]
+    #[Group('Golivetest')]
     public function testExample2(): void
     {
         $this->sqlquerybuilder->select('name')->orderBy('name')->select('username')->from('users')->where('username="test"');

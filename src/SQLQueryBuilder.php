@@ -1,6 +1,6 @@
 <?php
 
-namespace kaufmannmax;
+namespace kaufmannmax\SQLQueryBuilder;
 
 use InvalidArgumentException;
 use kaufmannmax\SQLQueryBuilder\Entities\From;
